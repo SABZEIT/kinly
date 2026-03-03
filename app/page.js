@@ -32,7 +32,7 @@ export default function KinlyApp() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
+    <div className="min-h-screen bg-gray-50 p-4 md:p-8 text-slate-900">
       <header className="max-w-2xl mx-auto mb-10 text-center">
         <h1 className="text-4xl font-bold text-indigo-600">Kinly</h1>
         <p className="text-gray-600">Organisez vos moments partagés</p>
@@ -40,21 +40,21 @@ export default function KinlyApp() {
 
       <main className="max-w-2xl mx-auto">
         <section className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mb-8">
-          <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-            <PlusCircle size={20} className="text-indigo-500" />
+          <h2 className="text-lg font-semibold mb-4 flex items-center gap-2 text-indigo-600">
+            <PlusCircle size={20} />
             Ajouter une activité
           </h2>
           <form onSubmit={addActivity} className="space-y-4">
             <input
               type="text"
               placeholder="Ex: Aller au ciné, Restaurant..."
-              className="w-full p-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500 outline-none text-black"
+              className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 outline-none bg-white text-black"
               value={newActivity.title}
               onChange={(e) => setNewActivity({...newActivity, title: e.target.value})}
             />
             <div className="flex gap-4">
               <select 
-                className="flex-1 p-3 rounded-lg border border-gray-200 bg-white text-black"
+                className="flex-1 p-3 rounded-lg border border-gray-300 bg-white text-black h-[50px]"
                 value={newActivity.category}
                 onChange={(e) => setNewActivity({...newActivity, category: e.target.value})}
               >
@@ -65,7 +65,7 @@ export default function KinlyApp() {
               </select>
               <button 
                 type="submit"
-                className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors"
+                className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors h-[50px]"
               >
                 Ajouter
               </button>
@@ -81,7 +81,7 @@ export default function KinlyApp() {
             activities.map((act) => (
               <div key={act.id} className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-indigo-500 flex justify-between items-center">
                 <div>
-                  <h3 className="font-bold text-gray-800">{act.title}</h3>
+                  <h3 className="font-bold text-gray-800 text-lg">{act.title}</h3>
                   <div className="flex gap-3 mt-1 text-sm text-gray-500">
                     <span className="flex items-center gap-1"><Tag size={14}/> {act.category}</span>
                     <span className="flex items-center gap-1"><Calendar size={14}/> {act.date}</span>
